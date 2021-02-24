@@ -10,7 +10,7 @@ using System.Windows;
 [assembly: AssemblyTitle("Autofac.SmartNavigation")]
 [assembly: AssemblyDescription("Autofac + Smart Navigation Service WPF")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
+[assembly: AssemblyCompany("Anton Aliev")]
 [assembly: AssemblyProduct("Autofac.SmartNavigation")]
 [assembly: AssemblyCopyright("Copyright © Anton Aliev 2021")]
 [assembly: AssemblyTrademark("")]

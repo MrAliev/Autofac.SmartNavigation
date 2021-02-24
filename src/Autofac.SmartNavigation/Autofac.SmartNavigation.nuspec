@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package >
+  <metadata>
+    <id>Autofac.SmartNavigation</id>
+    <version>1.0.0-alpha</version>
+    <title>Autofac.SmartNavigation</title>
+    <authors>Anton Aliev</authors>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <license type="expression">MIT</license>
+    <projectUrl>https://github.com/MrAliev/Autofac.SmartNavigation/tree/master/</projectUrl>
+    <description>Smart Navigation Service for WPF MVVM based at Autofac</description>
+    <releaseNotes>First test version</releaseNotes>
+    <copyright>Anton Aliev</copyright>
+    <tags>WPF MVVM Navigation</tags>
+    <dependencies>
+      <group targetFramework="net471" />
+    </dependencies>
+  </metadata>
+</package>

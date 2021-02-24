@@ -3,6 +3,7 @@ using Autofac;
 using Autofac.SmartNavigation.Extensions;
 using Autofac.SmartNavigation.Interfaces;
 using WpfFramework.Extensions;
+using WpfFramework.Views.Windows;
 
 namespace WpfFramework
 {
@@ -25,7 +26,7 @@ namespace WpfFramework
             
             var navigation = scope.Resolve<INavigationService>(); // получаем сервис навигации
 
-            navigation.Navigate("Имя_окна");  // вызываем окно по имени.
+            navigation.Navigate(nameof(ShellWindow));  // вызываем окно по имени.
         }
     }
 }
