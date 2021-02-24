@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using Autofac.SmartNavigation.Base;
@@ -24,9 +25,8 @@ namespace Autofac.SmartNavigation.Extensions
                 //Log.Logger.Debug($"Анализ сборки \"{assembly.FullName}\"");
                 builder.RegisterAssemblyTypes(assembly)
                     .PublicOnly()
-                    .Keyed<BaseVM>(t => t.Name.ToLower())
-                    .Named<BaseVM>(t => t.Name.ToLower().Replace("viewmodel", ""))
-                    .AsImplementedInterfaces()
+                    .Keyed<INotifyPropertyChanged>(t => t.Name.ToLower())
+                    .Named<INotifyPropertyChanged>(t => t.Name.ToLower().Replace("viewmodel", ""))
                     .AsSelf();
             }
 

@@ -469,7 +469,7 @@ namespace Autofac.SmartNavigation
         {
             aliasContext = aliasContext.ToLower();
             context = null;
-            if (!_scope.TryResolveKeyed(aliasContext, typeof(BaseVM), out var model)) return false;
+            if (!_scope.TryResolveKeyed(aliasContext, typeof(INotifyPropertyChanged), out var model)) return false;
             if (!(model is INotifyPropertyChanged changed)) return false;
             context = changed;
             return true;
