@@ -1,0 +1,144 @@
+﻿<base:NavigationalWindow x:Class="WpfFramework.Views.Windows.ShellWindow"
+                         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                         xmlns:d="http://schemas.microsoft.com/expression/blend/2008" mc:Ignorable="d"
+                         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                         xmlns:base="clr-namespace:Autofac.SmartNavigation.Base;assembly=Autofac.SmartNavigation"
+                         xmlns:sys="clr-namespace:System;assembly=mscorlib"
+                         xmlns:viewModels="clr-namespace:WpfFramework.ViewModels"
+                         d:DataContext="{d:DesignInstance Type=viewModels:ShellWindowViewModel, IsDesignTimeCreatable=True}"
+                         Title="{Binding Title}"
+                         Height="600"
+                         MinHeight="600"
+                         MinWidth="500"
+                         Width="800">
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <DockPanel Grid.Column="0">
+            <StackPanel DockPanel.Dock="Left"
+                        Orientation="Vertical">
+                <GroupBox Header="Счетчик переходов"
+                          Margin="5">
+                    <Label Content="{Binding Score, Mode=OneWay}"
+                           FontSize="40"
+                           HorizontalAlignment="Center"
+                           FontWeight="Bold"
+                           Foreground="DarkGreen"></Label>
+                </GroupBox>
+
+                <GroupBox Header="Навигация"
+                          Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <GroupBox>
+                            <StackPanel Orientation="Vertical">
+                                <StackPanel Orientation="Vertical">
+                                    <Label Content="Имя представления"></Label>
+                                    <TextBox Text="{Binding AliasView, UpdateSourceTrigger=PropertyChanged}" Margin="0,5" Padding="1"></TextBox>
+                                </StackPanel>
+                                <DockPanel>
+                                    <CheckBox Name="AutoFindContextCB" DockPanel.Dock="Right"
+                                              VerticalContentAlignment="Center"
+                                              IsChecked="{Binding FindContext}" />
+                                    <Label Content="Имя контекста"
+                                           MinWidth="150"></Label>
+                                    
+                                </DockPanel>
+                                <TextBox Name="ContextTB" ToolTip="Имя контекста" Padding="1"
+                                         Text="{Binding AliasContext}">
+                                    <TextBox.Style>
+                                        <Style TargetType="TextBox">
+                                            <Style.Resources>
+                                                <VisualBrush x:Key="CueBannerBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                    <VisualBrush.Visual>
+                                                        <Label Content="Введите имя контекста"
+                                                               Foreground="#FF666666"
+                                                               Background="Transparent" />
+                                                    </VisualBrush.Visual>
+                                                </VisualBrush>
+                                                <VisualBrush x:Key="DisabledBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                                                    <VisualBrush.Visual>
+                                                        <Label Content="Включен авто поиск контектса"
+                                                               Foreground="#FF9C9C9C"
+                                                               Background="Transparent"/>
+                                                    </VisualBrush.Visual>
+                                                </VisualBrush>
+                                            </Style.Resources>
+                                            <Setter Property="IsEnabled"
+                                                    Value="False"></Setter>
+                                            <Style.Triggers>
+                                                <Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="Text" Value="{x:Null}">
+                                                    <Setter Property="Background" Value="{StaticResource CueBannerBrush}" />
+                                                </Trigger>
+                                                <Trigger Property="IsKeyboardFocused" Value="True">
+                                                    <Setter Property="Background" Value="White" />
+                                                </Trigger>
+                                                <DataTrigger Binding="{Binding ElementName=AutoFindContextCB, Path=IsChecked}"
+                                                             Value="False">
+                                                    <Setter Property="IsEnabled"
+                                                            Value="True"></Setter>
+                                                    
+                                                </DataTrigger>
+                                                <DataTrigger Binding="{Binding ElementName=AutoFindContextCB, Path=IsChecked}"
+                                                             Value="True">
+                                                    <Setter Property="IsEnabled"
+                                                            Value="False"></Setter>
+                                                    <Setter Property="Background" Value="{StaticResource DisabledBrush}"></Setter>
+                                                </DataTrigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </TextBox.Style>
+
+                                </TextBox>
+                            </StackPanel>
+                        </GroupBox>
+
+                        <DockPanel Margin="5">
+                            <CheckBox VerticalContentAlignment="Center" DockPanel.Dock="Right" IsChecked="{Binding FindDuplicateView}"></CheckBox>
+                            <Label Content="Искать открытые окна"
+                                   MinWidth="150"></Label>
+                            
+                        </DockPanel>
+                        <Button Content="-= Перейти =-" Padding="2" Margin="5" IsDefault="True"
+                                Command="{Binding NavigateCommand}"
+                                CommandParameter="{Binding ElementName=ContextTB, Path=Text}"></Button>
+                        <Button Content="Открыть как модальное окно" Padding="2" Margin="5"
+                                Command="{Binding NavigateDialogCommand}"></Button>
+
+                    </StackPanel>
+
+                </GroupBox>
+
+                <GroupBox Header="Наблюдаемые свойства" Margin="5">
+                    <GroupBox Header="Текст из DataProvider">
+                         <TextBox Margin="5" Text="{Binding SomeText, UpdateSourceTrigger=PropertyChanged}"></TextBox>
+                    </GroupBox>
+                </GroupBox>
+
+                <GroupBox Header="Прочее" Margin="5">
+                    <StackPanel Orientation="Vertical">
+                        <Label Content="Имя текущего контекста"></Label>
+                        <TextBlock Text="{Binding ViewModelName}" Foreground="DarkBlue" FontSize="18" FontWeight="Bold" Padding="5"></TextBlock>
+                    </StackPanel>
+                </GroupBox>
+
+
+            </StackPanel>
+        </DockPanel>
+
+        <Frame x:Name="ShellWindowFrame"
+               Grid.Column="1"
+               NavigationUIVisibility="Hidden"
+               Background="#CCCCCC"
+               x:FieldModifier="public">
+        </Frame>
+        
+    </Grid>
+</base:NavigationalWindow>
