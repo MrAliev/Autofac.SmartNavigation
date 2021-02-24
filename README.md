@@ -56,6 +56,6 @@ namespace WpfFramework
 * Документация по [Autofac](https://autofaccn.readthedocs.io/en/latest/) 
 
 [Autofac]: https://www.nuget.org/packages/Autofac/6.1.0?_src=template
-[NuGet]: https://
+[NuGet]: https://www.nuget.org/packages/Autofac.SmartNavigation/1.0.0-alpha
 [документации]: https://
 [скачайте]: https://github.com/MrAliev/Autofac.SmartNavigation/tree/master
