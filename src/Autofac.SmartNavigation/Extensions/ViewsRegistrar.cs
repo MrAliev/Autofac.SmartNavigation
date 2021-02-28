@@ -1,4 +1,7 @@
-﻿using System.IO;
+﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Windows;
@@ -9,13 +12,8 @@ namespace Autofac.SmartNavigation.Extensions
 {
     internal static partial class AutofacExtensions
     {
-        internal static ContainerBuilder RegisterViews(this ContainerBuilder builder)
+        internal static ContainerBuilder RegisterViews(this ContainerBuilder builder, List<Assembly> assemblies)
         {
-            var allFiles = Directory.GetFiles(Directory.GetCurrentDirectory(), "*.*", SearchOption.AllDirectories).ToList();
-
-            var assemblies = allFiles.Where(f => f.EndsWith(".dll") || f.EndsWith(".exe"))
-                .Select(Assembly.LoadFile).ToList();
-
             foreach (var assembly in assemblies)
             {
                 RegisterAsm(assembly);
@@ -23,6 +21,8 @@ namespace Autofac.SmartNavigation.Extensions
 
             void RegisterAsm(Assembly assembly)
             {
+                //if(assembly.ImageRuntimeVersion == Application.Current.Properties.)
+
                 builder.RegisterAssemblyTypes(assembly)
                     .PublicOnly()
                     .Keyed<NavigationalWindow>(t => t.Name.ToLower())
