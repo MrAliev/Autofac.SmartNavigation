@@ -12,7 +12,7 @@ Autofac + умный навигационный сервис WPF MVVM. В пак
 
 ### Версии пакета
 ##### Актуальная версия
-* 1.0.2-alpha
+* [1.0.2-alpha](https://www.nuget.org/packages/Autofac.SmartNavigation/1.0.2-alpha)
 ##### Предыдущие версии
 * [1.0.1-alpha](https://www.nuget.org/packages/Autofac.SmartNavigation/1.0.1-alpha)
 
