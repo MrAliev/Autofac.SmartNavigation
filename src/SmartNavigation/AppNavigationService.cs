@@ -6,7 +6,6 @@ using System.Windows.Controls;
 using System.Windows.Navigation;
 using Autofac.SmartNavigation.Base;
 using Autofac.SmartNavigation.Interfaces;
-using Autofac.SmartNavigation.Views.Pages;
 
 namespace Autofac.SmartNavigation
 {
@@ -478,15 +477,15 @@ namespace Autofac.SmartNavigation
         private void ShowError(string message)
         {
             var window = GetActiveWindow();
-            if (window is NavigationalWindow navigationalWindow)
-            {
-                if (navigationalWindow.IsLoaded)
-                {
-                    Service = navigationalWindow.Frame.NavigationService;
-                    Service.Navigate(new Page404(message));
-                    return;
-                }
-            }
+            //if (window is NavigationalWindow navigationalWindow)
+            //{
+            //    if (navigationalWindow.IsLoaded)
+            //    {
+            //        Service = navigationalWindow.Frame.NavigationService;
+            //        Service.Navigate(new Page404(/*message*/));
+            //        return;
+            //    }
+            //}
 
             MessageBox.Show(message, "Ошибка навигации!", MessageBoxButton.OK, MessageBoxImage.Error);
         }

@@ -1,19 +1,53 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFrameworks>net5.0-windows;netcoreapp3.1</TargetFrameworks>
+    <TargetFrameworks>net5.0-windows;netcoreapp3.1;net4.7.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
     <RootNamespace>Autofac.SmartNavigation</RootNamespace>
+    <Version>1.0.2-alpha</Version>
+    <PackageId>Autofac.SmartNavigation</PackageId>
+    <Authors>Anton Aliev</Authors>
+    <Company />
+    <Description>WPF MVVM Navigation Service on Aftofac</Description>
+    <Copyright>Anton Aliev</Copyright>
+    <serviceable>true</serviceable>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/MrAliev/Autofac.SmartNavigation</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MrAliev/Autofac.SmartNavigation</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
+    <PackageTags>WPF MVVM Navigation Service</PackageTags>
+    <PackageReleaseNotes>Added support .NetCore3.1 and Net5.0</PackageReleaseNotes>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    </PropertyGroup>
+
+  <PropertyGroup>
+    <DocumentationFile>D:\Documents\Repository\Autofac.SmartNavigation.WPF\src\SmartNavigation\SmartNavigation.xml</DocumentationFile>
   </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net4.7.1'">
+    <PackageReference Include="Autofac" Version="6.1.0" />
+    <Reference Include="WindowsBase" Version="4.0.0.0" />
+    <Reference Include="PresentationFramework" Version="4.0.0.0" />
+    <Reference Include="PresentationCore" Version="4.0.0.0" />
+    <Reference Include="System.Xaml" Version="4.0.0.0" />
+    <Reference Include="Microsoft.CSharp" Version="4.0.0.0" />
+    <Reference Include="System.Data.DataSetExtensions" Version="4.0.0.0" />
+    
+   </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net5.0-windows'">
+    <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.1" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.1.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Compile Update="Views\Pages\Page404.xaml.cs">
-      <DependentUpon>Page404.xaml</DependentUpon>
-    </Compile>
-  </ItemGroup>
 
 </Project>
