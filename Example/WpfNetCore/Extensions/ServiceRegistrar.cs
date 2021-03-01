@@ -1,4 +1,6 @@
 ﻿using Autofac;
+using Autofac.SmartNavigation;
+using Autofac.SmartNavigation.Interfaces;
 using WpfNetCore.Services;
 
 namespace WpfNetCore.Extensions
