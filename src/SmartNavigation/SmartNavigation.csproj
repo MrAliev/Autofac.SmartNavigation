@@ -25,15 +25,13 @@
   </PropertyGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'net4.7.1'">
-    <PackageReference Include="Autofac" Version="6.1.0" />
     <Reference Include="WindowsBase" Version="4.0.0.0" />
     <Reference Include="PresentationFramework" Version="4.0.0.0" />
     <Reference Include="PresentationCore" Version="4.0.0.0" />
     <Reference Include="System.Xaml" Version="4.0.0.0" />
     <Reference Include="Microsoft.CSharp" Version="4.0.0.0" />
     <Reference Include="System.Data.DataSetExtensions" Version="4.0.0.0" />
-    
-   </ItemGroup>
+    </ItemGroup>
 
   <ItemGroup Condition="'$(TargetFramework)' == 'netcoreapp3.1'">
     <PackageReference Include="Autofac.Extensions.DependencyInjection" Version="7.1.0" />
