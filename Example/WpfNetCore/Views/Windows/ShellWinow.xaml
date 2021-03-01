@@ -5,7 +5,7 @@
                           xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                           xmlns:sys="clr-namespace:System;assembly=mscorlib"
                           xmlns:viewModels="clr-namespace:WpfNetCore.ViewModels"
-                          xmlns:base="clr-namespace:Autofac.SmartNavigation.Base;assembly=Autofac.SmartNavigation"
+                          xmlns:base="clr-namespace:Autofac.SmartNavigation.Base;assembly=SmartNavigation"
                           Title="{Binding Title}"
                           Height="600"
                           MinHeight="600"
