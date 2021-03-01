@@ -1,7 +1,7 @@
 ﻿using System.Windows.Controls;
 using Autofac.SmartNavigation.Base;
 
-namespace WpfFramework.Views.Windows
+namespace WpfNetCore.Views.Windows
 {
     /// <summary>
     /// Логика взаимодействия для MainWindow.xaml
