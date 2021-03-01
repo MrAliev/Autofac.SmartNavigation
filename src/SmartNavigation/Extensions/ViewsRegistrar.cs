@@ -21,8 +21,6 @@ namespace Autofac.SmartNavigation.Extensions
 
             void RegisterAsm(Assembly assembly)
             {
-                //if(assembly.ImageRuntimeVersion == Application.Current.Properties.)
-
                 builder.RegisterAssemblyTypes(assembly)
                     .PublicOnly()
                     .Keyed<NavigationalWindow>(t => t.Name.ToLower())

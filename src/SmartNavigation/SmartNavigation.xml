@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SmartNavigation</name>
+    </assembly>
+    <members>
+        <member name="T:Autofac.SmartNavigation.AppNavigationService">
+            <summary>
+            Сервис навигации
+            </summary>
+        </member>
+        <member name="P:Autofac.SmartNavigation.AppNavigationService.Service">
+            <summary>
+            Навигационный сервис приложения для страничной (Page) навигации
+            </summary>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.NavigateDialog(System.String,System.Object)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="context">Объект модели-представления для конструктора</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.NavigateDialog(System.String,System.Boolean)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="findContext">Флаг, указывающий на необходимость автоматического поиска модели представления</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.NavigateDialog(System.String,System.String)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="aliasContext">Название модели представления</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.Navigate(System.String,System.ComponentModel.INotifyPropertyChanged,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="context">Объект модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.Navigate(System.String,System.String,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="aliasContext">Название модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.Navigate(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="findContext">Флаг, указывающий на необходимость автоматического поиска модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="M:Autofac.SmartNavigation.AppNavigationService.#ctor(Autofac.ILifetimeScope)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="scope">Скоп с представлениями и вью-моделями</param>
+        </member>
+        <member name="T:Autofac.SmartNavigation.Base.BaseVM">
+            <summary>
+            Базовый класс вью-моделей
+            </summary>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Base.BaseVM.Set``1(``0@,``0,System.String)">
+            <summary>
+            Устанавливает новое значение в случае его отличия от текущего, с вызовом INPC
+            </summary>
+            <typeparam name="T">Тип значения</typeparam>
+            <param name="field">переменная свойства</param>
+            <param name="value">новое значение</param>
+            <param name="propertyName">Имя свойства</param>
+            <returns>результат операции</returns>
+        </member>
+        <member name="T:Autofac.SmartNavigation.Base.NavigationalWindow">
+            <summary>
+            Базовый класс окна с возможностью страничной навигации
+            </summary>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Extensions.AutofacExtension.UseAutofind(Autofac.ContainerBuilder)">
+            <summary>
+            Использовать автопоиск и регистрацию представлений и моделей представлений
+            </summary>
+            <param name="builder"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Autofac.SmartNavigation.Interfaces.INavigationService">
+            <summary>
+            Интерфейс навигационного сервиса
+            </summary>
+        </member>
+        <member name="P:Autofac.SmartNavigation.Interfaces.INavigationService.Service">
+            <summary>
+            Навигационный сервис приложения для страничной (Page) навигации
+            </summary>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.NavigateDialog(System.String,System.Object)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="context">Объект модели-представления для конструктора</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.NavigateDialog(System.String,System.Boolean)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="findContext">Флаг, указывающий на необходимость автоматического поиска модели представления</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.NavigateDialog(System.String,System.String)">
+            <summary>
+            Открывает модальное окно. В качестве владельца окна устанавливается текущее активное окно
+            </summary>
+            <param name="aliasDialog">Название модального окна</param>
+            <param name="aliasContext">Название модели представления</param>
+            <returns></returns>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.Navigate(System.String,System.ComponentModel.INotifyPropertyChanged,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="context">Объект модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.Navigate(System.String,System.String,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="aliasContext">Название модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="M:Autofac.SmartNavigation.Interfaces.INavigationService.Navigate(System.String,System.Boolean,System.Boolean)">
+            <summary>
+            Выполняет переход на указанную страницу (или открывает новое окно) в зависимости от типа представления
+            </summary>
+            <param name="aliasView">Название представления</param>
+            <param name="findContext">Флаг, указывающий на необходимость автоматического поиска модели представления</param>
+            <param name="findDuplicate">Флаг, указывающий на необходимость искать запрошенное окно среди открытых.
+            Если запрошенное окно не будет найдено среди уже открытых - будет открыто новое окно.
+            Флаг игнорируется, если в качестве представления выступает страница (Page)</param>
+        </member>
+        <member name="T:Autofac.SmartNavigation.Interfaces.INavigationWindow">
+            <summary>
+            Интерфейс окна со страничной навигацией
+            </summary>
+        </member>
+        <member name="P:Autofac.SmartNavigation.Interfaces.INavigationWindow.Frame">
+            <summary>
+            Фрейм для страничной навигации
+            </summary>
+        </member>
+    </members>
+</doc>
